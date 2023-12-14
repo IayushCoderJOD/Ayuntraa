@@ -27,14 +27,14 @@ const Header = () => {
     //           uid:uid, email:email,displayName:displayName
     //         }))
     //         navigate("/main")
-            
+
     //       } else {
     //         appStore.dispatch(removeUser());
     //         navigate("/")
     //       }
     //     }); 
     //   },[])
-    
+
 
     // const getDetails = async () => {
     //     const data = await fetch("https://kohls.p.rapidapi.com/categories/list", options)
@@ -108,7 +108,7 @@ const Header = () => {
                 </div>
                 {view && <div className='h-96 items-center absolute flex justify-evenly overflow-y-auto  bg-gray-800 bg-opacity-90 text-white mt-[95px]  rounded-lg shadow-2xl  rounded-t-none mr-[150px] w-[950px]'>
                     <div className=' pb-20 pt-8  '  >
-                    <ul className='space-y-3'>
+                        <ul className='space-y-3'>
 
                             <li>Shop by categories</li>
                             <li>Best in the market</li>
@@ -123,7 +123,7 @@ const Header = () => {
 
                     </div>
                     <div className=' pb-20 pt-8  '  >
-                    <ul className='space-y-3'>
+                        <ul className='space-y-3'>
 
                             <li>T-Shirts Collection</li>
                             <li>Latest Denim Styles</li>
@@ -137,7 +137,7 @@ const Header = () => {
                     </div>
 
                     <div className=' pb-20 pt-8  '  >
-                    <ul className='space-y-3'>
+                        <ul className='space-y-3'>
                             <li>Summer Fashion Trends</li>
                             <li>Editor's Choice for Fall</li>
                             <li>Most Searched Winter Styles</li>
@@ -151,10 +151,10 @@ const Header = () => {
 
                 </div>}
                 <div className='pt-7 flex'>
-                <Link to="/cart" >
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwa-El_T1b1G1F99i5PfJO3ob6pFEWECgnOw&usqp=CAU" className='h-12 p-3 bg-gray-800 rounded-xl hover:bg-gray-600' alt="" />
-                        </Link>
-                    
+                    <Link to="/cart" >
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwa-El_T1b1G1F99i5PfJO3ob6pFEWECgnOw&usqp=CAU" className='h-12 p-3 bg-gray-800 rounded-xl hover:bg-gray-600' alt="" />
+                    </Link>
+
                     <p className=' pt-3 pl-1  text-base font-semibold'>Cart items- {cartItems.length}</p>
                 </div>
 
@@ -165,25 +165,27 @@ const Header = () => {
 
                     <li onClick={() => {
                         setPirce(!price)
-                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{price?"price ➕":"price ➖"} </li>
+                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{price ? "price ➕" : "price ➖"} </li>
                     <div className={price ? "hidden" : "block"} >
-                        <p className='pl-8'>S</p>
-                        <p className='pl-8'>M</p>
-                        <p className='pl-8'>L</p>
-                        <p className='pl-8'>XL</p>
+                        <p className='pl-8'> under ₹500</p>
+                        <p className='pl-8'> under ₹800</p>
+                        <p className='pl-8'> under ₹1200</p>
+                        <p className='pl-8'> under ₹4500</p>
+
                     </div>
                     <li onClick={() => {
                         setBrand(!brand)
-                    }} className=' pt-3 cursor-pointer text-xl hover:text-gray-600   font-serif  ' >{brand?"brand ➕":"brand ➖"}</li>
+                    }} className=' pt-3 cursor-pointer text-xl hover:text-gray-600   font-serif  ' >{brand ? "brand ➕" : "brand ➖"}</li>
                     <div className={brand ? "hidden" : "block"} >
-                        <p className='pl-8'>S</p>
-                        <p className='pl-8'>M</p>
-                        <p className='pl-8'>L</p>
-                        <p className='pl-8'>XL</p>
+                        <p className='pl-8'>FabIndia</p>
+                        <p className='pl-8'>W for Woman</p>
+                        <p className='pl-8'>Manyavar</p>
+                        <p className='pl-8'>Biba</p>
+
                     </div>
                     <li onClick={() => {
                         setSize(!size)
-                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{size?"size ➕":"size ➖"}</li>
+                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{size ? "size ➕" : "size ➖"}</li>
                     <div className={size ? "hidden" : "block"} >
                         <p className='pl-8'>S <span className='font-light' > (1512)</span></p>
                         <p className='pl-8'>M <span className='font-light' > (1342)</span></p>
@@ -192,7 +194,7 @@ const Header = () => {
                     </div>
                     <li onClick={() => {
                         setColour(!colour)
-                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{colour?"colour ➕":"colour ➖"}</li>
+                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{colour ? "colour ➕" : "colour ➖"}</li>
                     <div className={colour ? "hidden" : "block"} >
                         <p className='   pl-8 flex'> <div className=' m-[6px] rounded-sm border border-black h-3 w-3 bg-blue-700'></div> Blue </p>
                         <p className=' pl-8 flex'> <div className=' m-[6px] rounded-sm border border-black h-3 w-3 bg-pink-700'></div> Pink </p>
@@ -201,12 +203,12 @@ const Header = () => {
                     </div>
                     <li onClick={() => {
                         setMaterial(!material)
-                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{material?"material ➕":"material ➖"}</li>
+                    }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{material ? "material ➕" : "material ➖"}</li>
                     <div className={material ? "hidden" : "block"} >
-                        <p className='pl-8'>XS</p>
-                        <p className='pl-8'>M</p>
-                        <p className='pl-8'>L</p>
-                        <p className='pl-8'>XL</p>
+                        <p className='pl-8'>Cotton</p>
+                        <p className='pl-8'>Nylon</p>
+                        <p className='pl-8'>Linen</p>
+                        {/* <p className='pl-8'></p> */}
                     </div>
                 </ul>
 
