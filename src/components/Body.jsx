@@ -4,10 +4,9 @@ import Header from './Header'
 import MainBody from "./MainBody"
 import MultipleProducts from './MultipleProducts'
 import Footer from './Footer'
-// import { Provider } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const Body = () => {
-  
   return (
     <>
     <Header />

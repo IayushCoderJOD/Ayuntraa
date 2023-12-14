@@ -5,7 +5,7 @@ import Products from '../utils/Products';
 import { clearCart } from '../utils/cartSlice';
 
 const Cart = () => {
-    const items = useSelector(store => store.cart.items);
+    const items = useSelector(store => store.cart.toggle);
     const dispatch=useDispatch();
     const clearCartOnClick=()=>{
         dispatch(clearCart())

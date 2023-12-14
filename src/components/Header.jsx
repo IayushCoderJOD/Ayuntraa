@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from '../utils/Firebase'
-import { clearCart } from '../utils/cartSlice'
-import { options } from '../constants/Data'
-import appStore from '../utils/appStore'
-import { addUser, removeUser } from '../utils/userSlice'
+import { toggleTheme } from '../utils/cartSlice'
+// import { clearCart } from '../utils/cartSlice'
+// import { options } from '../constants/Data'
+// import appStore from '../utils/appStore'
+// import { addUser, removeUser } from '../utils/userSlice'
 const Header = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const [toggleColor,setToggleColor]=useState(false);
     const [price, setPirce] = useState(true);
     const [display, setDisplay] = useState(true)
     const [brand, setBrand] = useState(true);
@@ -19,31 +21,10 @@ const Header = () => {
     const [material, setMaterial] = useState(true);
     const cartItems = useSelector(store => store.cart.items)
     const [view, setView] = useState(false);
-    // useEffect(()=>{
-    //     onAuthStateChanged(auth, (user) => {
-    //       if (user) {
-    //         const {uid,email,displayName} = user.uid;
-    //         appStore.dispatch(addUser({
-    //           uid:uid, email:email,displayName:displayName
-    //         }))
-    //         navigate("/main")
-
-    //       } else {
-    //         appStore.dispatch(removeUser());
-    //         navigate("/")
-    //       }
-    //     }); 
-    //   },[])
-
-
-    // const getDetails = async () => {
-    //     const data = await fetch("https://kohls.p.rapidapi.com/categories/list", options)
-    //     const json = await data.json();
-    //     // setListDetails(json.payload.categories[5].categories);
-    // }
-    // useEffect(() => {
-    //     getDetails();
-    // }, [])
+    const handleToggleTheme=()=>{
+        dispatch(toggleTheme());
+        setToggleColor(!toggleColor)
+    }
     const handleLogin = () => {
         signOut(auth).then(() => {
             navigate("/")
@@ -54,16 +35,16 @@ const Header = () => {
     return (
         <>
 
-            <div className='fixed w-full flex justify-evenly bg-gray-200 text-gray-800 '>
+            <div className={toggleColor?'fixed w-full flex justify-evenly bg-gray-200 text-gray-800 ':'fixed w-full flex justify-evenly bg-black text-gray-200' } >
                 <img onClick={() => {
                     setDisplay(!display)
-                }} className='h-16 w-12 pt-6' src={display ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuras_I78qJJti5cOq4YVKIHQCg_PjVEq-8Q&usqp=CAU" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaFIKTYfSCOTBT0p1zMhHqdNutXfac6OvY_w&usqp=CAU"} alt="" />
+                }} className=' h-16 w-12 pt-6' src={display ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuras_I78qJJti5cOq4YVKIHQCg_PjVEq-8Q&usqp=CAU" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaFIKTYfSCOTBT0p1zMhHqdNutXfac6OvY_w&usqp=CAU"} alt="" />
 
                 <Link to="/main" >
                     <img
                         alt='image not available right now'
                         src={img1}
-                        className="rounded-xl h-24 mt-0 rounded-t-none m-2 shadow-xl"
+                        className="rounded-xl h-24 mt-3 m-2 shadow-xl"
                     />
                 </Link>
                 <div className='flex' >
@@ -102,7 +83,10 @@ const Header = () => {
                         </Link>
                         <input className='border h-10 border-black bg-gray-50 m-2 mb-7 rounded-xl w-60 p-[5px] text-black' type="text" placeholder='search...' />
                         <li>
-                            <button onClick={handleLogin} className=' h-10 font-normal text-xl text-white bg-gray-800 rounded-xl p-2 pt-1 hover:bg-gray-700 m-2 mb-7 '>Logout</button>
+                            <button onClick={handleLogin} className={!toggleColor?
+                            ' h-10 font-normal text-xl border border-black bg-white text-gray-800 rounded-xl p-2 pt-1 hover:bg-gray-200 m-2 mb-7 ':
+                            ' h-10 font-normal text-xl text-white bg-gray-800 rounded-xl p-2 pt-1 hover:bg-gray-700 m-2 mb-7 ' }
+                            >Logout</button>
                         </li>
                     </ul>
                 </div>
@@ -152,17 +136,21 @@ const Header = () => {
                 </div>}
                 <div className='pt-7 flex'>
                     <Link to="/cart" >
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwa-El_T1b1G1F99i5PfJO3ob6pFEWECgnOw&usqp=CAU" className='h-12 p-3 bg-gray-800 rounded-xl hover:bg-gray-600' alt="" />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwa-El_T1b1G1F99i5PfJO3ob6pFEWECgnOw&usqp=CAU" className={toggleColor ? 'h-12 p-3 bg-gray-800 rounded-xl hover:bg-gray-600' :'h-12 p-3 bg-white rounded-xl hover:bg-gray-600'
+                    
+                    } alt="" />
                     </Link>
 
                     <p className=' pt-3 pl-1  text-base font-semibold'>Cart items- {cartItems.length}</p>
+                    <div onClick={()=>handleToggleTheme()} className={toggleColor?'h-7 w-14 ml-5 mt-2 rounded-r-2xl rounded-l-2xl  mr-0 bg-black' :'h-7 w-14 ml-5 mt-2 rounded-r-2xl rounded-l-2xl  mr-0 bg-white' }>
+                        <div className={toggleColor?'h-5 w-5 rounded-full p-1 bg-white mt-[3px] ml-2':'h-5 w-5 rounded-full p-1 bg-black mt-[3px] ml-7'} ></div>
+                    </div>
                 </div>
 
             </div>
             <div className={display ? 'hidden' : ' h-full  block fixed ml-0 mt-[104px] bg-gray-200 text-black w-52 justify-center'}>
                 <ul className='m-6 font-normal flex flex-col pl-3 ' >
                     <li className='text-3xl  p-2 font-semibold  font-serif underline'>Filters</li>
-
                     <li onClick={() => {
                         setPirce(!price)
                     }} className=' pt-3 cursor-pointer text-xl  font-serif hover:text-gray-600 ' >{price ? "price ➕" : "price ➖"} </li>
