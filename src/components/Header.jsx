@@ -35,7 +35,7 @@ const Header = () => {
     return (
         <>
 
-            <div className={toggleColor?'fixed w-full flex justify-evenly bg-gray-200 text-gray-800 ':'fixed w-full flex justify-evenly bg-black text-gray-200' } >
+            <div className={toggleColor?'fixed w-full flex justify-evenly bg-gray-200 text-gray-800 ':'fixed w-full flex justify-evenly bg-black bg-opacity-90 text-gray-200' } >
                 <img onClick={() => {
                     setDisplay(!display)
                 }} className=' h-16 w-12 pt-6' src={display ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuras_I78qJJti5cOq4YVKIHQCg_PjVEq-8Q&usqp=CAU" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaFIKTYfSCOTBT0p1zMhHqdNutXfac6OvY_w&usqp=CAU"} alt="" />
@@ -148,7 +148,7 @@ const Header = () => {
                 </div>
 
             </div>
-            <div className={display ? 'hidden' : ' h-full  block fixed ml-0 mt-[104px] bg-gray-200 text-black w-52 justify-center'}>
+            <div className={display ? 'hidden' : ' h-full  block fixed ml-0 mt-[116px] bg-gray-200 text-black w-52 justify-center'}>
                 <ul className='m-6 font-normal flex flex-col pl-3 ' >
                     <li className='text-3xl  p-2 font-semibold  font-serif underline'>Filters</li>
                     <li onClick={() => {

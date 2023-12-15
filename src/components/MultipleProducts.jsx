@@ -12,9 +12,9 @@ const MultipleProducts = () => {
   }
 
   return (
-    <div className={!theme?'bg-black bg-opacity-90  text-center align-middle justify-center':'bg-gray-200 text-center align-middle justify-center'}>
+    <div className={!theme?'bg-black bg-opacity-90  text-center align-middle justify-center':'bg-gray-200 text-center align-middle justify-center '}>
       <h1 className={!theme?'bg-gray-200 p-4 text-6xl font-serif':'bg-black bg-opacity-90  p-4 text-white text-6xl font-serif'}>All Time Best sellers</h1>
-      <div className='flex flex-wrap justify-evenly'>
+      <div className='flex flex-wrap justify-evenly p-7'>
         {popularProducts.map((product) => (
           <div key={product.id}>
             <Products src={product.img} price={product.price} />

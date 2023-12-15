@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from '../utils/Card'
-import Categories from '../utils/Categories'
-import { categories } from '../constants/Data'
+// import Categories from '../utils/Categories'
+// import { categories } from '../constants/Data'
 import { image_address } from '../constants/Data'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 const MainBody = () => {
 
   const theme=useSelector(store=>store.cart.toggle)
