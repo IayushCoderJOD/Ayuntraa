@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import { useDispatch, useSelector } from 'react-redux'
 import Products from '../utils/Products';
-import { clearCart } from '../utils/cartSlice';
+import { clearCart, removeItems } from '../utils/cartSlice';
 
 const Cart = () => {
     const items = useSelector(store => store.cart.items);
@@ -10,14 +10,21 @@ const Cart = () => {
     const clearCartOnClick = () => {
         dispatch(clearCart())
     }
+    const removeCartOnClick = () => {
+        dispatch(removeItems())
+    }
 
     return (
         <div>
             <Header />
+            <div className='flex justify-center pb-6' >
                 <button onClick={clearCartOnClick} className={items.length === 0 ? 'hidden' : 'bg-red-700 hover:bg-red-600 mt-36 p-3 w-52 text-white text-xl shadow-lg rounded-xl m-3'} >Clear Cart</button>
+                <button onClick={removeCartOnClick} className={items.length === 0 ? 'hidden' : 'bg-blue-700 hover:bg-blue-600 mt-36 p-3 w-52 text-white text-xl shadow-lg rounded-xl m-3'}  >Remove</button>
+            </div>
+
             <div className=' justify-between pl-80 flex flex-col'>
 
-                <h1 className={items.length===0? 'pl-96 pt-36 font-medium text-2xl ':'pl-96 font-medium text-2xl ' }>{items.length === 0 ? "Please add products😊" : "Products added"}</h1>
+                <h1 className={items.length === 0 ? 'pl-96 pt-36 font-medium text-2xl ' : 'pl-96 font-medium text-2xl '}>{items.length === 0 ? "Please add products😊" : "Products added"}</h1>
                 {
                     <div className='flex flex-wrap' >
 
