@@ -10,7 +10,7 @@ const Body = () => {
   return (
     <>
     <Header />
-    <div className='pt-28'> 
+    <div className='pt-29'> 
     <Carousel /> 
     <MainBody />
     <MultipleProducts />
