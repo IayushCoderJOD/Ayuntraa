@@ -30,6 +30,53 @@ export const categories = [
     "https://assets.ajio.com/medias/sys_master/root/20230602/rNDt/64797e9542f9e729d715c5af/-473Wx593H-462219466-grey-MODEL.jpg"
 ]
 
+
+
+export const kitchenProducts = [
+  {
+    id: 1,
+    img: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/51dJMl90Z+L._SY300_SX300_.jpg",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  {
+    id: 2,
+    img: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/31ODgFm8VJL._SY300_SX300_QL70_FMwebp_.jpg",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  {
+    id: 3,
+    img: "https://images-eu.ssl-images-amazon.com/images/W/MEDIAX_792452-T2/images/I/41+saUUhj5L._AC_SX184_.jpg",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  {
+    id: 4,
+    img: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/31aWIrixU7L._SX300_SY300_QL70_FMwebp_.jpg",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  {
+    id: 5,
+    img: "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  {
+    id: 6,
+    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  {
+    id: 7,
+    img: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/71OAKzxyZzL._AC_SY200_.jpg",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  {
+    id: 8,
+    img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+    price: getRandomIndianCurrencyPrice(),
+  },
+  
+];
+
+
 export const popularProducts = [
   {
     id: 1,

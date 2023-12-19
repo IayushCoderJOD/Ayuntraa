@@ -19,7 +19,7 @@ const Cart = () => {
             <Header />
             <div className='flex justify-center pb-6' >
                 <button onClick={clearCartOnClick} className={items.length === 0 ? 'hidden' : 'bg-red-700 hover:bg-red-600 mt-36 p-3 w-52 text-white text-xl shadow-lg rounded-xl m-3'} >Clear Cart</button>
-                <button onClick={removeCartOnClick} className={items.length === 0 ? 'hidden' : 'bg-blue-700 hover:bg-blue-600 mt-36 p-3 w-52 text-white text-xl shadow-lg rounded-xl m-3'}  >Remove</button>
+                <button onClick={removeCartOnClick} className={items.length === 0 ? 'hidden' : 'bg-blue-700 hover:bg-blue-600 mt-36 p-3 w-52 text-white text-xl shadow-lg rounded-xl m-3'}  >Remove</button>npmnpm 
             </div>
 
             <div className=' justify-between pl-80 flex flex-col'>
