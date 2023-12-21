@@ -16,6 +16,7 @@ import Cart from "./components/Cart";
 function App() {
   const appRouter = createBrowserRouter([
     {
+      
       path: "/",
       element: <Login />,
     },
