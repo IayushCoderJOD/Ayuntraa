@@ -1,6 +1,4 @@
 # Getting Started with Create React App
-# I'am only changing the readme file
-# started converting this code to typescript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
